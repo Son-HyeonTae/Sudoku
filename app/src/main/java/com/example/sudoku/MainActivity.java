@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         TableLayout table;
         table = (TableLayout)findViewById(R.id.tableLayout);
 
+        BoardGenerator board = new BoardGenerator();
+
         TableRow tableRow0 = new TableRow(this);
         TableRow tableRow1 = new TableRow(this);
         TableRow tableRow2 = new TableRow(this);
@@ -53,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
             for (int j = 0; j < 9; j++) {
                 buttons[i][j] = new Button(this);
                 buttons[i][j].setLayoutParams(layoutParams);
+
+                int number = 0;
+                int randomNum = (int)(Math.random()*10);
+                if (randomNum > 3) {
+                    buttons[i][j].setText(Integer.toString(number = board.get(i, j)));
+                }
 
                 switch (i) {
                     case 0:
