@@ -2,9 +2,11 @@ package com.example.sudoku;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
                 int number = 0;
                 int randomNum = (int)(Math.random()*10);
-                if (randomNum > 3) {
+                if (randomNum > 4) {
                     buttons[i][j].setText(Integer.toString(number = board.get(i, j)));
                 }
 
@@ -93,5 +95,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
+        buttons[0][0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "abcd", (int)1);
+            }
+        });
     }
 }
